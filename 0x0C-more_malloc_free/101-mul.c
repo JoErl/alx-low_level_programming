@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - a finction that multiplies two positive numbers
+ * main - multiplies two positive numbers
  * @argc: n arguments
  * @argv: args
  * Return: int, if not 0
