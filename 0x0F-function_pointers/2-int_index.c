@@ -1,18 +1,26 @@
-#include <stdlib.h>
-
 /**
- * array_iterator - a function that searches for an integer.
- * @array: array to interate through.
- * @size: size of the array.
- * @action: the fuction to execute array and size on.
+ * int_index - a function that searches for an integer.
+ * @array: array of intergers.
+ * @size: size of array.
+ * @cmp: is the fuction to execute on the array.
  *
- * Return: Nothing
+ * Return: Index (int)
  */
-void array_iterator(int *array, size_t size, void (*action)(int))
+int int_index(int *array, int size, int (*cmp)(int))
 {
-	if (!array || !size || !action)
-		return;
+	int index;
+
+	index = size;
+	if (size <= 0)
+		return (-1);
+	if (!array || !cmp)
+		return (-1);
 
 	while (size--)
-		action(*array++);
+	{
+		if (cmp(array[index - size]))
+			return (index - size);
+	}
+
+	return (-1);
 }
